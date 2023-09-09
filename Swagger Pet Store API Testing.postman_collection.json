@@ -4,8 +4,7 @@
 		"name": "Swagger Pet Store API Testing",
 		"description": "This is a sample server Petstore server. You can find out more about Swagger at [http://swagger.io/](http://swagger.io/)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29559382",
-		"_collection_link": "https://dark-robot-288056.postman.co/workspace/Grupp3~b495c86a-b6cf-4609-aa82-33396fbd17d4/collection/29559386-9817d168-88af-491f-b821-8550701a27fa?action=share&source=collection_link&creator=29559382"
+		"_exporter_id": "29559382"
 	},
 	"item": [
 		{
@@ -384,7 +383,9 @@
 									"",
 									"pm.test(\"Content-Type header is application/json\", () => {",
 									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-									"});"
+									"});",
+									"",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -859,14 +860,16 @@
 									"    console.log(\"Validation test complete.\");",
 									"});",
 									"",
-									"// Log an entry before asserting petId",
+									"",
+									"",
+									"// Log an entry before asserting petID",
 									"console.log(\"Asserting ...\");",
 									"",
 									"",
-									"// Bekräfta värdet av petId",
-									"pm.test(\"Assert petId\", function () {",
-									"    const petId = pm.environment.get(\"petId\");",
-									"    pm.expect(petId).to.equal(\"1\");",
+									"// Bekräfta värdet av petID",
+									"pm.test(\"Assert petID\", function () {",
+									"    const petID = pm.environment.get(\"petID\");",
+									"    pm.expect(petID).to.equal(\"1\");",
 									"});",
 									"",
 									"// Bekräfta värdet av petName",
@@ -877,7 +880,6 @@
 									"",
 									"// Log a final entry after all tests are completed",
 									"console.log(\"All tests completed.\");",
-									"",
 									"",
 									"",
 									"",
@@ -1071,6 +1073,9 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -1100,10 +1105,14 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{petID}}",
+							"raw": "{{getPetID}}",
 							"host": [
-								"{{petID}}"
+								"{{getPetID}}"
 							]
 						},
 						"description": "Få information om en husdjur med id"
@@ -1243,6 +1252,7 @@
 									"",
 									"// Log a final entry after all tests are completed",
 									"console.log(\"All tests completed.\");",
+									"",
 									"",
 									"",
 									"",
